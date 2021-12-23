@@ -1,0 +1,8 @@
+server:
+  port: 8080
+vk:
+  url: https://api.vk.com/method
+
+vk-visualizer:
+  token: 
+  version: 5.131
