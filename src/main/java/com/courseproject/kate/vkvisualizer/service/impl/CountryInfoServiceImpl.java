@@ -15,26 +15,27 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class CountryInfoServiceImpl implements CountryInfoService {
 
-    private static final String REGIONS_GET = "/database.getRegions?country_id={country_id}&count={count}&access_token={token}&v={v}";
-    private static final String CITIES_GET = "/database.getCities?country_id={country_id}&region_id={region_id}&need_all={need_all}&count={count}&access_token={token}&v={v}";
+    private static final String REGIONS_GET = "/database.getRegions?country_id={country_id}&count={count}&access_token={token}&v={v}&lang={lang}";
+    private static final String CITIES_GET = "/database.getCities?country_id={country_id}&region_id={region_id}&need_all={need_all}&count={count}&access_token={token}&v={v}&lang={lang}";
 
     private final RestTemplate template;
     private final VkVisualizerConfig config;
 
 
     @Override
-    public RegionsResponse getRegions(Integer countryId, Integer count) {
+    public RegionsResponse getRegions(Integer countryId, Integer count, Integer lang) {
         final Map<String, Object> params = new HashMap<>() {{
             put("country_id", countryId);
             put("count", count);
             put("token", config.getToken());
             put("v", config.getVersion());
+            put("lang", lang);
         }};
         return template.getForObject(REGIONS_GET, RegionsResponse.class, params);
     }
 
     @Override
-    public CitiesResponse getCities(Integer countyId, Integer regionId, Integer needAll, Integer count) {
+    public CitiesResponse getCities(Integer countyId, Integer regionId, Integer needAll, Integer count, Integer lang) {
         final Map<String, Object> params = new HashMap<>() {{
             put("country_id", countyId);
             put("region_id", regionId);
@@ -42,6 +43,7 @@ public class CountryInfoServiceImpl implements CountryInfoService {
             put("count", count);
             put("token", config.getToken());
             put("v", config.getVersion());
+            put("lang", lang);
         }};
         return template.getForObject(CITIES_GET, CitiesResponse.class, params);
     }

@@ -3,12 +3,14 @@ package com.courseproject.kate.vkvisualizer.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Getter
 @Setter
+@ToString
 public class CitiesResponse implements Serializable {
 
     @JsonProperty("response")
@@ -16,12 +18,14 @@ public class CitiesResponse implements Serializable {
 
     @Getter
     @Setter
+    @ToString
     public static class Cities {
         private Integer count;
         private List<City> items;
 
         @Getter
         @Setter
+        @ToString
         public static class City {
             private int id;
             private String title;

@@ -11,5 +11,6 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "vk-visualizer")
 public class VkVisualizerConfig {
     private String token;
+    private String access_token;
     private String version;
 }

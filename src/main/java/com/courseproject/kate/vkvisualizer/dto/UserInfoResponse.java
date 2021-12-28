@@ -11,6 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@ToString
 public class UserInfoResponse implements Serializable {
 
     @JsonProperty("response")
@@ -34,5 +35,7 @@ public class UserInfoResponse implements Serializable {
         private Boolean isClosed;
         @JsonProperty("bdate")
         private String bDate;
+        @JsonProperty("sex")
+        private Integer sex;
     }
 }

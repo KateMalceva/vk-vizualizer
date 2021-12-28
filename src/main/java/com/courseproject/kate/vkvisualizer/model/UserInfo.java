@@ -1,14 +1,15 @@
 package com.courseproject.kate.vkvisualizer.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
+@ToString
 @Accessors(chain = true)
 public class UserInfo {
 
@@ -18,4 +19,5 @@ public class UserInfo {
     private Boolean canAccessClosed;
     private Boolean isClosed;
     private LocalDate bDate;
+    private Integer sex;
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@ToString
 public class RegionsResponse implements Serializable {
 
     @JsonProperty("response")
